@@ -9,18 +9,18 @@ A shared BiomeJS config.
 <!-- prettier-ignore -->
 | Config | Description |
 | :-- | :--- |
-| `@erunion/standards/biome` | For projects that use [Biome](https://biomejs.dev/). |
-| `@erunion/standards/biome/esm` | &mdash; addon for ESM-only repositories.<sup>†</sup>  |
-| `@erunion/standards/prettier` | For projects that use [Prettier](https://prettier.io/). |
+| `@erunion/biome-config` | For projects that use [Biome](https://biomejs.dev/). |
+| `@erunion/biome-config/esm` | &mdash; addon for ESM-only repositories.<sup>†</sup>  |
+| `@erunion/biome-config/prettier` | For projects that use [Prettier](https://prettier.io/). |
 
-<sub>† This requires also using `@erunion/standards/biome`.</sub>
+<sub>† This requires also using `@erunion/biome-config/biome`.</sub>
 
 ### Biome
 
 ### Installation
 
 ```sh
-npm install --save-dev @biomejs/biome @erunion/standards
+npm install --save-dev @biomejs/biome @erunion/biome-config
 ```
 
 ### Usage
@@ -30,8 +30,8 @@ Create a `biome.jsonc` file with the following contents:
 ```json
 {
   "extends": [
-    "@erunion/standards/biome"
-    // "@erunion/standards/biome/<supplemental>"
+    "@erunion/biome-config/biome"
+    // "@erunion/biome-config/biome/<supplemental>"
   ]
 }
 ```
@@ -47,14 +47,14 @@ By default this config does **not** enable auto-formatting. If you need that ena
 ```
 
 > [!NOTE]
-> If you do use auto-formatting with Biome we recommend **not** also using `@erunion/standards/prettier` as they two may collide.
+> If you do use auto-formatting with Biome we recommend **not** also using `@erunion/biome-config/prettier` as they two may collide.
 
 ### Prettier
 
 ### Installation
 
 ```sh
-npm install --save-dev prettier @erunion/standards
+npm install --save-dev prettier @erunion/biome-config
 ```
 
 ### Usage
@@ -62,7 +62,7 @@ npm install --save-dev prettier @erunion/standards
 Add the following into your `package.json`:
 
 ```json
-"prettier": "@erunion/standards/prettier"
+"prettier": "@erunion/biome-config/prettier"
 ```
 
 > [!NOTE]
