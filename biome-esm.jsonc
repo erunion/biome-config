@@ -1,0 +1,38 @@
+{
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "linter": {
+    "rules": {
+      "correctness": {
+        "noGlobalDirnameFilename": "error",
+
+        // Biome says that this rule is enabled in the `project` domain but that doesn't seem to be
+        // the case.
+        "useImportExtensions": {
+          "level": "error",
+          "options": {
+            // If we don't force `.js` extensions then Biome will use `.ts` extensions in TS code
+            // which may lead to interop issues with compiled code.
+            "forceJsExtensions": true,
+          },
+        },
+      },
+      "performance": {
+        // Namespace imports (`import * as foo from 'foo'`) can severely impact performance and
+        // tree-shaking capabilities in various bundlers.
+        //
+        // https://biomejs.dev/linter/rules/no-namespace-import/
+        "noNamespaceImport": "error",
+      },
+      "style": {
+        "noCommonJs": "error",
+
+        // In libraries that support CJS and ESM environments, having a file that has a `default`
+        // **and** a named export makes that file incompatible with CJS environments due to the way
+        // that CJS resolution works in that case.
+        //
+        // https://biomejs.dev/linter/rules/no-default-export/
+        "noDefaultExport": "error",
+      },
+    },
+  },
+}
